@@ -1,0 +1,33 @@
+import { useRadioGroup } from "@material-ui/core";
+import React from "react";
+import "./Sidebar.css";
+import SidebarRow from "./sidebarRow";
+import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
+import EmojiFlagsIcon from "@material-ui/icons/EmojiFlags";
+import PeopleIcon from "@material-ui/icons/People";
+import ChatIcon from "@material-ui/icons/Chat";
+import StorefrontIcon from "@material-ui/icons/Storefront";
+import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
+import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
+import { useStateValue } from "./StateProvider";
+function Sidebar() {
+  const [{ user }, dispatch] = useStateValue();
+
+  return (
+    <div className="sidebar">
+      <SidebarRow src={user.photoURl}
+      title="{user.displayName}
+      />
+      <SidebarRow Icon={LocalHospitalIcon}
+       title="COVID-19 Infomation Center" />
+
+      <SidebarRow Icon={FamilyImagesIcon} title="Pages" />
+      <SidebarRow Icon={anyIcon} title="Friends" />
+      <SidebarRow Icon={ChatIcon} title="Messenger" />
+      <SidebarRow Icon={StorefrontIcon} title="Marketplace" />
+      <SidebarRow Icon={VideolibraryIcon} title="Videos" />
+      <SidebarRow Icon={ExpandMoreOutlined} titile="Marketplace" />
+    </div>
+  );
+}
+export default Sidebar;
